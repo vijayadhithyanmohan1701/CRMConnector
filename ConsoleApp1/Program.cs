@@ -15,13 +15,15 @@ namespace ConsoleApp1
             {
                 // Obtain connection configuration information for the Microsoft Dynamics
                 // CRM organization web service.
-                String connectionString = ConnectionMethods.GetServiceConfiguration();
+                //String connectionString = ConnectionMethods.GetServiceConfiguration();
 
-                if (connectionString != null)
-                {
-                    ConnectionMethods app = new ConnectionMethods();
-                    app.Run(connectionString);
-                }
+                //if (connectionString != null)
+                //{
+                //    ConnectionMethods app = new ConnectionMethods();
+                //    app.Run();
+                //}
+                ConnectionMethods app = new ConnectionMethods();
+                app.Run();
             }
 
             catch (FaultException<Microsoft.Xrm.Sdk.OrganizationServiceFault> ex)

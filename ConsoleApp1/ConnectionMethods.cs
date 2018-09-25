@@ -18,13 +18,15 @@ namespace ConsoleApp1
         //private Guid _accountId;
         private static IOrganizationService _orgService;
 
-        public void Run(String connectionString)
+        public void Run()
         {
             try
             {
+
                 // Connect to the CRM web service using a connection string.
                 ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
-                CrmServiceClient conn = new CrmServiceClient(connectionString);
+                CrmServiceClient conn = new CrmServiceClient(new NetworkCredential("clickd@bigbarreluat.hostedcrm.co.nz", "KlT1UyMJ", "hostedcrm.co.nz"), Microsoft.Xrm.Tooling.Connector.AuthenticationType.IFD, "bigbarreluat.hostedcrm.co.nz", "443", "BigBarrelUAT");
+                //CrmServiceClient conn = new CrmServiceClient(connectionString);
 
                 // Cast the proxy client to the IOrganizationService interface.
                 _orgService = (IOrganizationService)conn.OrganizationWebProxyClient != null ? (IOrganizationService)conn.OrganizationWebProxyClient : (IOrganizationService)conn.OrganizationServiceProxy;
